@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Calculator — Arithmetic + Binary + History</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Calculator</h1>
+    <div class="mode-switch">
+      <button id="mode-standard" class="mode-btn active">Standard</button>
+      <button id="mode-binary" class="mode-btn">Binary / Bitwise</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="calculator">
+      <div class="display">
+        <div id="expr" class="expr" aria-live="polite"></div>
+        <div id="result" class="result" aria-live="polite">0</div>
+      </div>
+
+      <div class="buttons" id="buttons">
+        <!-- Row 1 -->
+        <button class="btn action" data-action="clear">C</button>
+        <button class="btn action" data-action="back">⌫</button>
+        <button class="btn action" data-action="paren">( )</button>
+        <button class="btn op" data-value="/">÷</button>
+
+        <!-- Row 2 -->
+        <button class="btn num" data-value="7">7</button>
+        <button class="btn num" data-value="8">8</button>
+        <button class="btn num" data-value="9">9</button>
+        <button class="btn op" data-value="*">×</button>
+
+        <!-- Row 3 -->
+        <button class="btn num" data-value="4">4</button>
+        <button class="btn num" data-value="5">5</button>
+        <button class="btn num" data-value="6">6</button>
+        <button class="btn op" data-value="-">−</button>
+
+        <!-- Row 4 -->
+        <button class="btn num" data-value="1">1</button>
+        <button class="btn num" data-value="2">2</button>
+        <button class="btn num" data-value="3">3</button>
+        <button class="btn op" data-value="+">+</button>
+
+        <!-- Row 5 -->
+        <button class="btn zero num" data-value="0">0</button>
+        <button class="btn num" data-value=".">.</button>
+        <button class="btn action" data-action="equals">=</button>
+        <button class="btn action" data-action="convert">Convert</button>
+      </div>
+
+      <div class="bitwise-panel" id="bitwisePanel" aria-hidden="true">
+        <div class="row">
+          <button class="btn bin num" data-value="1">1</button>
+          <button class="btn bin num" data-value="0">0</button>
+          <button class="btn op" data-value="&">AND (&)</button>
+          <button class="btn op" data-value="|">OR (|)</button>
+        </div>
+        <div class="row">
+          <button class="btn op" data-value="^">XOR (^)</button>
+          <button class="btn op" data-value="~">NOT (~)</button>
+          <button class="btn op" data-value="<<">SHL (&lt;&lt;)</button>
+          <button class="btn op" data-value=">>">SHR (&gt;&gt;)</button>
+        </div>
+        <div class="row">
+          <button class="btn op" data-value=">>>">USHR (&gt;&gt;&gt;)</button>
+          <button class="btn action" data-action="toDecimal">To Decimal</button>
+          <button class="btn action" data-action="toBinary">To Binary</button>
+          <button class="btn action" data-action="bit-help">Help</button>
+        </div>
+      </div>
+    </section>
+
+    <aside class="history">
+      <div class="history-header">
+        <h2>History</h2>
+        <div>
+          <button id="clearHistory" class="small">Clear all</button>
+        </div>
+      </div>
+      <ul id="historyList" class="history-list" aria-live="polite"></ul>
+    </aside>
+  </main>
+
+  <footer>
+    <small>Supports keyboard input. In Binary mode, numbers are taken as binary (sequence of 0/1).</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
